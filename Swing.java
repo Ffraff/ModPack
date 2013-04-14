@@ -212,7 +212,7 @@ public class Swing {
 			for (File dir : packDirs) {
 				filesInPack = dir.listFiles(new XMLFilter());
 				if (filesInPack.length > 0) {
-					pack = XMLIO.readPackFromFile(filesInPack[0]);
+					pack = FileUtils.readPackFromFile(filesInPack[0]);
 					pack.doneLoading();
 					packs.addElement(pack);
 				}
@@ -254,8 +254,8 @@ public class Swing {
 	    }
 		
 		private void savePacksToXML() {
-			XMLIO.writePackToFile(list.getModel().getElementAt(currentlySelected));
-			XMLIO.writePacksToFile(packs);
+			FileUtils.writePackToFile(list.getModel().getElementAt(currentlySelected));
+			FileUtils.writePacksToFile(packs);
 		}
 		
 		private class NewPackWindow extends JFrame {
